@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-route.min.js"></script>
+    <script>
+        var app = angular.module('mainApp', []).controller("mainCtrl", function ($scope) {
+
+            $scope.count = -1;
+            $scope.$watch('txtname', function (newval, oldval) {
+                $scope.count = $scope.count+1;
+            })
+            $scope.cache = $cacheFactory('cacheId');
+            $scope.save = function (key, value) {
+                if (angular.isUndefined($scope.cach.get(key)))
+                    $scope.keys.push(key);
+            }
+          
+
+        });
+       
+
+    </script>
+</head>
+<body>
+    <div>
+
+
+        <div ng-controller="mainCtrl">
+           
+            <div >
+               <input type="text" ng-model="txtkey"/>
+
+                <input type="text" ng-model="txtvalue" />
+                <br/>
+                <button ng-click="save(txtkey,txtvalue)"></button>
+            </div>
+            <div>
+                <div ng-repeat=" in keys">
+
+                </div>
+            </div>
+            <div>{{count}}</div>
+        </div>
+
+
+    </div>
+</body>
+</html>

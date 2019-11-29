@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html ng-app="upload">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
+    <script src="Agiantry.js"></script>
+    <script>
+        
+    </script>
+</head>
+
+<body ng-controller="myfile">
+    <div>
+        <input type="file" multiple="multiple" ngf-select="UploadFiles($files)" onchange="angular.element(this).scope().SelectFile(event)"/>
+        <br/>
+        <img ng-src="{{PreviewImage}}" ng-show="PreviewImage != null" alt="" style="height:200px;width:200px" />
+        <button ng-click="save()">Save</button>
+    </div>
+    <br/>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+            </tr>
+            <tr ng-repeat="s in GetAllInfo">
+                <td>{{s.Id}}</td>
+                <td><img ng-src="{{s.filepath}}" /></td>
+            </tr>
+        </table>
+       
+    </div>
+
+  
+</body>
+</html>
